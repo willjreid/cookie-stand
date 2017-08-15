@@ -27,6 +27,20 @@ console.log(store1.cookiesSold);
 document.getElementById('store1Name').innerHTML = store1.name;
 document.getElementById('store1hour1').innerHTML = store1.cookiesSold[0];
 document.getElementById('store1hour2').innerHTML = store1.cookiesSold[1];
+document.getElementById('store1hour3').innerHTML = store1.cookiesSold[2];
+document.getElementById('store1hour4').innerHTML = store1.cookiesSold[3];
+document.getElementById('store1hour5').innerHTML = store1.cookiesSold[4];
+document.getElementById('store1hour6').innerHTML = store1.cookiesSold[5];
+document.getElementById('store1hour7').innerHTML = store1.cookiesSold[6];
+document.getElementById('store1hour8').innerHTML = store1.cookiesSold[7];
+document.getElementById('store1hour9').innerHTML = store1.cookiesSold[8];
+document.getElementById('store1hour10').innerHTML = store1.cookiesSold[9];
+document.getElementById('store1hour11').innerHTML = store1.cookiesSold[10];
+document.getElementById('store1hour12').innerHTML = store1.cookiesSold[11];
+document.getElementById('store1hour13').innerHTML = store1.cookiesSold[12];
+document.getElementById('store1hour14').innerHTML = store1.cookiesSold[13];
+document.getElementById('store1hour15').innerHTML = store1.cookiesSold[14];
+document.getElementById('store1total').innerHTML = store1.dailyCookieSales;
 /*document.getElementByClass('<h3 class ='store1'></h3>').innerHTML = '<h3 class ='store1'></h3>';
 
 /*

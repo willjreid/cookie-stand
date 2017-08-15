@@ -1,0 +1,10 @@
+* {
+  font-family: garamond;
+}
+
+#bg {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
