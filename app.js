@@ -121,3 +121,83 @@ document.getElementById('store3hour13').innerHTML = store3.cookiesSold[12];
 document.getElementById('store3hour14').innerHTML = store3.cookiesSold[13];
 document.getElementById('store3hour15').innerHTML = store3.cookiesSold[14];
 document.getElementById('store3total').innerHTML = store3.dailyCookieSales;
+
+var store4 = {
+  name: 'Capitol Hill',
+  minHrCustomers: 20,
+  maxHrCustomers: 38,
+  avgCookiesSale: 2.3,
+  cookiesSold: [],
+  dailyCookieSales: 0,
+  cookieSales: function() {
+    for (var i = 0; i < openHours.length; i++) {
+      var customers = Math.floor(Math.random() * (this.maxHrCustomers - this.minHrCustomers) + this.minHrCustomers);
+      var hourlySales = Math.floor(customers * this.avgCookiesSale);
+      console.log(hourlySales);
+      this.cookiesSold.push(hourlySales);
+      this.dailyCookieSales = this.dailyCookieSales + hourlySales;
+    }
+    return this.cookiesSold;
+  }
+};
+
+store4.cookieSales();
+console.log(store4.dailyCookieSales);
+console.log(store4.cookiesSold);
+document.getElementById('store4Name').innerHTML = store4.name;
+document.getElementById('store4hour1').innerHTML = store4.cookiesSold[0];
+document.getElementById('store4hour2').innerHTML = store4.cookiesSold[1];
+document.getElementById('store4hour3').innerHTML = store4.cookiesSold[2];
+document.getElementById('store4hour4').innerHTML = store4.cookiesSold[3];
+document.getElementById('store4hour5').innerHTML = store4.cookiesSold[4];
+document.getElementById('store4hour6').innerHTML = store4.cookiesSold[5];
+document.getElementById('store4hour7').innerHTML = store4.cookiesSold[6];
+document.getElementById('store4hour8').innerHTML = store4.cookiesSold[7];
+document.getElementById('store4hour9').innerHTML = store4.cookiesSold[8];
+document.getElementById('store4hour10').innerHTML = store4.cookiesSold[9];
+document.getElementById('store4hour11').innerHTML = store4.cookiesSold[10];
+document.getElementById('store4hour12').innerHTML = store4.cookiesSold[11];
+document.getElementById('store4hour13').innerHTML = store4.cookiesSold[12];
+document.getElementById('store4hour14').innerHTML = store4.cookiesSold[13];
+document.getElementById('store4hour15').innerHTML = store4.cookiesSold[14];
+document.getElementById('store4total').innerHTML = store4.dailyCookieSales;
+
+var store5 = {
+  name: 'Alki',
+  minHrCustomers: 2,
+  maxHrCustomers: 16,
+  avgCookiesSale: 4.6,
+  cookiesSold: [],
+  dailyCookieSales: 0,
+  cookieSales: function() {
+    for (var i = 0; i < openHours.length; i++) {
+      var customers = Math.floor(Math.random() * (this.maxHrCustomers - this.minHrCustomers) + this.minHrCustomers);
+      var hourlySales = Math.floor(customers * this.avgCookiesSale);
+      console.log(hourlySales);
+      this.cookiesSold.push(hourlySales);
+      this.dailyCookieSales = this.dailyCookieSales + hourlySales;
+    }
+    return this.cookiesSold;
+  }
+};
+
+store5.cookieSales();
+console.log(store5.dailyCookieSales);
+console.log(store5.cookiesSold);
+document.getElementById('store5Name').innerHTML = store5.name;
+document.getElementById('store5hour1').innerHTML = store5.cookiesSold[0];
+document.getElementById('store5hour2').innerHTML = store5.cookiesSold[1];
+document.getElementById('store5hour3').innerHTML = store5.cookiesSold[2];
+document.getElementById('store5hour4').innerHTML = store5.cookiesSold[3];
+document.getElementById('store5hour5').innerHTML = store5.cookiesSold[4];
+document.getElementById('store5hour6').innerHTML = store5.cookiesSold[5];
+document.getElementById('store5hour7').innerHTML = store5.cookiesSold[6];
+document.getElementById('store5hour8').innerHTML = store5.cookiesSold[7];
+document.getElementById('store5hour9').innerHTML = store5.cookiesSold[8];
+document.getElementById('store5hour10').innerHTML = store5.cookiesSold[9];
+document.getElementById('store5hour11').innerHTML = store5.cookiesSold[10];
+document.getElementById('store5hour12').innerHTML = store5.cookiesSold[11];
+document.getElementById('store5hour13').innerHTML = store5.cookiesSold[12];
+document.getElementById('store5hour14').innerHTML = store5.cookiesSold[13];
+document.getElementById('store5hour15').innerHTML = store5.cookiesSold[14];
+document.getElementById('store5total').innerHTML = store5.dailyCookieSales;
