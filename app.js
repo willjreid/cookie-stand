@@ -81,3 +81,43 @@ document.getElementById('store2hour13').innerHTML = store2.cookiesSold[12];
 document.getElementById('store2hour14').innerHTML = store2.cookiesSold[13];
 document.getElementById('store2hour15').innerHTML = store2.cookiesSold[14];
 document.getElementById('store2total').innerHTML = store2.dailyCookieSales;
+
+var store3 = {
+  name: 'Seattle Center',
+  minHrCustomers: 11,
+  maxHrCustomers: 38,
+  avgCookiesSale: 3.7,
+  cookiesSold: [],
+  dailyCookieSales: 0,
+  cookieSales: function() {
+    for (var i = 0; i < openHours.length; i++) {
+      var customers = Math.floor(Math.random() * (this.maxHrCustomers - this.minHrCustomers) + this.minHrCustomers);
+      var hourlySales = Math.floor(customers * this.avgCookiesSale);
+      console.log(hourlySales);
+      this.cookiesSold.push(hourlySales);
+      this.dailyCookieSales = this.dailyCookieSales + hourlySales;
+    }
+    return this.cookiesSold;
+  }
+};
+
+store3.cookieSales();
+console.log(store3.dailyCookieSales);
+console.log(store3.cookiesSold);
+document.getElementById('store3Name').innerHTML = store3.name;
+document.getElementById('store3hour1').innerHTML = store3.cookiesSold[0];
+document.getElementById('store3hour2').innerHTML = store3.cookiesSold[1];
+document.getElementById('store3hour3').innerHTML = store3.cookiesSold[2];
+document.getElementById('store3hour4').innerHTML = store3.cookiesSold[3];
+document.getElementById('store3hour5').innerHTML = store3.cookiesSold[4];
+document.getElementById('store3hour6').innerHTML = store3.cookiesSold[5];
+document.getElementById('store3hour7').innerHTML = store3.cookiesSold[6];
+document.getElementById('store3hour8').innerHTML = store3.cookiesSold[7];
+document.getElementById('store3hour9').innerHTML = store3.cookiesSold[8];
+document.getElementById('store3hour10').innerHTML = store3.cookiesSold[9];
+document.getElementById('store3hour11').innerHTML = store3.cookiesSold[10];
+document.getElementById('store3hour12').innerHTML = store3.cookiesSold[11];
+document.getElementById('store3hour13').innerHTML = store3.cookiesSold[12];
+document.getElementById('store3hour14').innerHTML = store3.cookiesSold[13];
+document.getElementById('store3hour15').innerHTML = store3.cookiesSold[14];
+document.getElementById('store3total').innerHTML = store3.dailyCookieSales;
