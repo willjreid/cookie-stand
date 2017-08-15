@@ -13,7 +13,6 @@ var store1 = {
     for (var i = 0; i < openHours.length; i++) {
       var customers = Math.floor(Math.random() * (this.maxHrCustomers - this.minHrCustomers) + this.minHrCustomers);
       var hourlySales = Math.floor(customers * this.avgCookiesSale);
-      console.log(hourlySales);
       this.cookiesSold.push(hourlySales);
       this.dailyCookieSales = this.dailyCookieSales + hourlySales;
     }
@@ -22,8 +21,6 @@ var store1 = {
 };
 
 store1.cookieSales();
-console.log(store1.dailyCookieSales);
-console.log(store1.cookiesSold);
 document.getElementById('store1Name').innerHTML = store1.name;
 document.getElementById('store1hour1').innerHTML = store1.cookiesSold[0];
 document.getElementById('store1hour2').innerHTML = store1.cookiesSold[1];
@@ -53,7 +50,6 @@ var store2 = {
     for (var i = 0; i < openHours.length; i++) {
       var customers = Math.floor(Math.random() * (this.maxHrCustomers - this.minHrCustomers) + this.minHrCustomers);
       var hourlySales = Math.floor(customers * this.avgCookiesSale);
-      console.log(hourlySales);
       this.cookiesSold.push(hourlySales);
       this.dailyCookieSales = this.dailyCookieSales + hourlySales;
     }
@@ -62,8 +58,6 @@ var store2 = {
 };
 
 store2.cookieSales();
-console.log(store2.dailyCookieSales);
-console.log(store2.cookiesSold);
 document.getElementById('store2Name').innerHTML = store2.name;
 document.getElementById('store2hour1').innerHTML = store2.cookiesSold[0];
 document.getElementById('store2hour2').innerHTML = store2.cookiesSold[1];
@@ -93,7 +87,6 @@ var store3 = {
     for (var i = 0; i < openHours.length; i++) {
       var customers = Math.floor(Math.random() * (this.maxHrCustomers - this.minHrCustomers) + this.minHrCustomers);
       var hourlySales = Math.floor(customers * this.avgCookiesSale);
-      console.log(hourlySales);
       this.cookiesSold.push(hourlySales);
       this.dailyCookieSales = this.dailyCookieSales + hourlySales;
     }
@@ -102,8 +95,6 @@ var store3 = {
 };
 
 store3.cookieSales();
-console.log(store3.dailyCookieSales);
-console.log(store3.cookiesSold);
 document.getElementById('store3Name').innerHTML = store3.name;
 document.getElementById('store3hour1').innerHTML = store3.cookiesSold[0];
 document.getElementById('store3hour2').innerHTML = store3.cookiesSold[1];
@@ -133,7 +124,6 @@ var store4 = {
     for (var i = 0; i < openHours.length; i++) {
       var customers = Math.floor(Math.random() * (this.maxHrCustomers - this.minHrCustomers) + this.minHrCustomers);
       var hourlySales = Math.floor(customers * this.avgCookiesSale);
-      console.log(hourlySales);
       this.cookiesSold.push(hourlySales);
       this.dailyCookieSales = this.dailyCookieSales + hourlySales;
     }
@@ -142,8 +132,6 @@ var store4 = {
 };
 
 store4.cookieSales();
-console.log(store4.dailyCookieSales);
-console.log(store4.cookiesSold);
 document.getElementById('store4Name').innerHTML = store4.name;
 document.getElementById('store4hour1').innerHTML = store4.cookiesSold[0];
 document.getElementById('store4hour2').innerHTML = store4.cookiesSold[1];
@@ -173,7 +161,6 @@ var store5 = {
     for (var i = 0; i < openHours.length; i++) {
       var customers = Math.floor(Math.random() * (this.maxHrCustomers - this.minHrCustomers) + this.minHrCustomers);
       var hourlySales = Math.floor(customers * this.avgCookiesSale);
-      console.log(hourlySales);
       this.cookiesSold.push(hourlySales);
       this.dailyCookieSales = this.dailyCookieSales + hourlySales;
     }
@@ -182,8 +169,6 @@ var store5 = {
 };
 
 store5.cookieSales();
-console.log(store5.dailyCookieSales);
-console.log(store5.cookiesSold);
 document.getElementById('store5Name').innerHTML = store5.name;
 document.getElementById('store5hour1').innerHTML = store5.cookiesSold[0];
 document.getElementById('store5hour2').innerHTML = store5.cookiesSold[1];
