@@ -11,3 +11,12 @@
 .total {
   font-weight:bold;
 }
+table {
+  border: solid #CCC;
+}
+td {
+  border: solid 1px #CCC;
+}
+th {
+  border: solid #DDD;
+}
