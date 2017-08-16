@@ -34,7 +34,6 @@ var row = document.createElement('tr');
 for (var k = 0; k < storeHours.length; k++) {
   var rowHead = document.createElement('th');
   rowHead.innerText = storeHours[k];
-  console.log(storeHours[k]);
   row.appendChild(rowHead);
   head.appendChild(row);
 };
