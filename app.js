@@ -7,19 +7,18 @@ function store (name, minCust, maxCust, avgCookies) {
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookies = avgCookies;
-  this.cookieHourSale = [];
+  this.simCookies = [];
   this.randomCustomersPerHour = function() {
     return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   };
   this.eachHourSales = function() {
-    this.simCookies = [];
     this.totalCookieSales = 0;
     for (var i = 0; i < storeHours.length; i++) {
       var hourlyCookieSales = Math.ceil(this.avgCookies * this.randomCustomersPerHour());
       this.simCookies.push(hourlyCookieSales);
       this.totalCookieSales += hourlyCookieSales;
-      console.log(this.name);
-      console.log(this.simCookies);
+      //console.log(this.name);
+      //console.log(this.simCookies);
     }
   };
   this.eachHourSales();
@@ -31,18 +30,16 @@ var seattleCenter = new store('Seattle Center', 11, 38, 3.7);
 var capitol = new store('Capitol Hill', 20, 38, 2.3);
 var alki = new store('Alki', 2, 16, 4.6);
 
-function dailySalesReport () {
-  store.eachHourSales();
-  var table = document.getElementById('table');
-  var storesArray = [pike, seatac, seattleCenter, capitol, alki];
-  for (i = 0; i < storesArray.length; i++) {
-    var row = document.createElement('tr');
-    for (j = 0; j < storeHours.length; j++) {
-      var td = document.createElement('td');
-      td.innerText = storesArray[i].cookieHourSale[j];
-      row.appendChild(td);
-    }
-    table.appendChild(row);
-  }
-  dailySalesReport();
+//store.eachHourSales();
+var table = document.getElementById('salesTable');
+var storesArray = [pike, seatac, seattleCenter, capitol, alki];
+for (var i = 0; i < storesArray.length; i++) {
+  var record = document.createElement('tr');
+  for (var j = 0; j < storeHours.length; j++) {
+    var tableData = document.createElement('td');
+    tableData.innerText = storesArray[i].simCookies[j];
+    console.log(storesArray[i].simCookies);
+    record.appendChild(tableData);
+  };
+  table.appendChild(record);
 }
