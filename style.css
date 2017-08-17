@@ -20,3 +20,6 @@ td {
 th {
   border: solid #DDD;
 }
+#theForm {
+  margin-top: 20px;
+}
