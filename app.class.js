@@ -195,14 +195,14 @@ var tableMaker = function(locationArray) {
   footerMaker();
 };
 
-far form = document.getElementById('addStoreForm');
+var form = document.getElementById('addStoreForm');
 form.addEventListener('submit', addNewCookieStore);
 
 tableMaker(shopLocations);
 //clicking the submit button is not the same as submitting the form. this specifically looks for submitting the form.
 
 
-//how to create a fform element with JS:
+//how to create a form element with JS:
 var newInput = document.createElement('input');
 newInput.setAttribute('type', 'text');
 newInput.setAttribute('required', true);
