@@ -98,5 +98,11 @@ function bakeAndPost(event) {
 
 }
 
-var form = document.getElementById('theForm');
+(function() {
+  var form = document.getElementById('theForm');
+  addEvent(form, 'submit', function(e) {
+    e.preventDefault();
+    var elements = this.elements;
+    var name = this.elements;
+  })
 form.addEventListener('submit', bakeAndPost);
