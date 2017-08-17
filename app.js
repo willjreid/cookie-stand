@@ -1,6 +1,5 @@
 'use strict';
 
-//var storeHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 var hoursToList = ['', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
 function store (name, minCust, maxCust, avgCookies) {
@@ -37,7 +36,6 @@ for (var i = 0; i < hoursToList.length + 1; i++) {
   thead.id = 'hours';
   th.class = 'bold';
   th.innerText = hoursToList[i];
-  //console.log(hoursToList[i]);
   thead.appendChild(th);
 }
 var storeTotal = document.createElement('th');
@@ -54,46 +52,51 @@ for (var j = 0; j < storesArray.length; j++) {
   var th = document.createElement('th');
   th.innerText = storesArray[j].name;
   tr.appendChild(th);
-  //console.log(storesArray[j].name);
   for (var k = 0; k < hoursToList.length - 1; k++) {
     var td = document.createElement('td');
     td.innerText = storesArray[j].simCookies[k];
-    console.log(storesArray[j].name);
-    console.log(storesArray[j].simCookies[k]);
     tr.appendChild(td);
   }
   rows.appendChild(tr);
 };
-//for (var l = 0; l < stores.Array.length; l++) {
-
-//var totals = document.getElementById('store');
-
-//this section should add an initial row value of the store name but I haven't cracked it yet
-/*var table = document.getElementById('salesBody');
-for (var i = 0; i < storesArray.length; i++) {
-  var site = document.createElement('tr');
-  var site = document.createElement('th');
-  site.innerText = '1st and Pike';
-  table.appendChild(site);
-};*/
-
-//adding hourly sales projections
-/*var table = document.getElementById('salesBody');
-for (var i = 0; i < storesArray.length; i++) {
-  var record = document.createElement('tr');
-  for (var j = 0; j < storeHours.length; j++) {
-    var tableData = document.createElement('td');
-    tableData.innerText = storesArray[i].simCookies[j];
-    //console.log(storesArray[i].simCookies);
-    record.appendChild(tableData);
+//here begins the effort to take form inputs and create a row
+function Post(name, minCust, maxCust, avgCookies) {
+  this.name = name;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgCookies = avgCookies;
+  this.simCookies = [];
+  this.randomCustomersPerHour = function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   };
-  table.appendChild(record);
-}*/
-/*var table = document.getElementById('store1');
-for (var j = 0; j < storeHours.length; j++) {
-  var tableData = document.createElement('td');
-  tableData.innerText = storesArray[0].name.simCookies[j];
-  console.log(store.pike);
-  //console.log(storesArray[i].simCookies);
-  record.appendChild(tableData);
-};*/
+  this.eachHourSales = function() {
+    this.totalCookieSales = 0;
+    for (var i = 1; i < hoursToList.length; i++) {
+      var hourlyCookieSales = Math.ceil(this.avgCookies * this.randomCustomersPerHour());
+      this.simCookies.push(hourlyCookieSales);
+      this.totalCookieSales += hourlyCookieSales;
+    }
+  };
+  this.eachHourSales();
+  this.renderToHTML = function() {
+    var body = document.getElementById('store4');
+    var postRow = document.createElement('tr');
+    for (var j = 1; j < hoursToList.length; j++) {
+      var postSales = document.createElement('td');
+      postSales.innerText = this.simCookies[j];
+    };
+  };
+};
+function bakeAndPost(event) {
+  event.preventDefault();
+  var formStore = new Store();
+  post.name = this.elements['storeName'].value;
+  post.minCust = this.elements['minCust'].value;
+  post.maxCust = this.elements['maxCust'].value;
+  post.avgCookies = this.elements['avgCookies'].value;
+  post.renderToHTML();
+
+}
+
+var form = document.getElementById('theForm');
+form.addEventListener('submit', bakeAndPost);
