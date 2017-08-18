@@ -35,18 +35,31 @@ th {
   font-style: italic;
 }
 #salmon {
-  position: absolute;
-  max-width: 80%;
-  opacity: .7;
-  z-index: -1;
+  max-width: 20%;
+  float: left;
+  display: inline-block;
 }
 #billboard {
-  padding-top: 15%;
+  float: left;
+  max-width: 60%;
   text-align: center;
+  border: 2px grey solid;
+  display: inline-block;
+  color: #GGG;
+  background-color: rgba(255, 0, 0, 0.5);
 }
+#chinook {
+  max-width: 20%;
+  float: right;
+  display: inline-block;
+}
+
 .highlights {
   font-family: 'Josefin Sans', sans-serif;
   display: inline-block;
+  border: 1px grey solid;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.5);
 }
 li.highlights {
   border: solid #GGG 1px;
@@ -57,4 +70,44 @@ thead {
 }
 form.tr {
   background-color: rgba(245, 245, 245, 0.1);
+}
+#pat {
+  color: rgba(255, 0, 0, 0.5);
+  text-shadow: 2px;
+}
+.clear {
+  clear: left;
+}
+.about {
+  float: left;
+  max-width: 60%;
+  padding-top: 10px;
+  border: 1px #GGG dotted;
+  background-color: rgba(240, 240, 240, .1);
+}
+#sajak {
+  min-width: 100px;
+  max-width: 40%;
+  float: center;
+  display: inline-block;
+}
+#bg {
+  padding: 0;
+  position: fixed;
+  min-width: 100%;
+  z-index: -1;
+}
+aside {
+  float: right;
+  max-width: 40%;
+}
+#family {
+  max-width: 250px;
+}
+#left-images {
+  floar: center;
+  max-width: 20%;
+}
+#deals {
+  float: left;
 }
