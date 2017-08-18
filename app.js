@@ -9,12 +9,13 @@ function Store (storeName, minCust, maxCust, avgCookies) {
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookies = avgCookies;
-  this.simCookies = [];
+  this.simCookies = []; // consider moving this down into the method
   this.randomCustomersPerHour = function() {
     return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   };
   this.eachHourSales = function() {
     this.totalCookieSales = 0;
+    this.simCookies = []; // adding this into the loop kickoff so we don't double-calculate;
     for (var i = 1; i < hoursToList.length; i++) {
       var hourlyCookieSales = Math.ceil(this.avgCookies * this.randomCustomersPerHour());
       this.simCookies.push(hourlyCookieSales);
@@ -33,7 +34,7 @@ var capitol = new Store('Capitol Hill', 20, 38, 2.3);
 var alki = new Store('Alki', 2, 16, 4.6);
 
 //adding hours to the header row
-var header = document.getElementById('salesTable');
+var header = document.getElementById('salesTable'); //may not need this since we reference the table earlier?
 var thead = document.createElement('thead');
 thead.id = 'hours';
 for (var i = 0; i < hoursToList.length + 1; i++) {
@@ -92,7 +93,7 @@ function addNewCookieStore(event) {
   console.log('click');
   event.preventDefault();
   var form = event.target;//this assocaites the form with the target event
-  var formStoreName = form.storeName.value;
+  var formStoreName = form.elements['storeName'].value;//why do i not say form.elements['storeName']?
   console.log(formStoreName);
   var formMinCust = parseInt(form.elements['minCust'].value);
   console.log(formMinCust);
