@@ -35,9 +35,9 @@ var alki = new Store('Alki', 2, 16, 4.6);
 //adding hours to the header row
 var header = document.getElementById('salesTable');
 var thead = document.createElement('thead');
+thead.id = 'hours';
 for (var i = 0; i < hoursToList.length + 1; i++) {
   var th = document.createElement('th');
-  thead.id = 'hours';
   th.class = 'bold';
   th.innerText = hoursToList[i];
   thead.appendChild(th);
@@ -83,8 +83,9 @@ for (var i = 0; i < storesArray.length; i++) {
 var footerMaker = function() {
   var footer = document.getElementById('salesTable');
   var tr = document.createElement('tr');
+  tr.id = 'footer';
   var td = document.createElement('td');
-  td.class = 'footer';
+  //td.class = 'footer';
   td.innerText = 'Total Sales: ';
   tr.appendChild(td);
   for (var i = 1; i < hoursToList.length + 1; i++){
@@ -92,12 +93,11 @@ var footerMaker = function() {
     td.innerText = hourlyTotalSales[i].reduce(function(sum,value) {
       return sum + value ;
     },0);
-    td.class = 'footer';
+
     tr.appendChild(td);
   };
   var superTotal = document.createElement('td');
   td.innerText = grandTotal;
-  //tr.appendChild(superTotal);
   footer.appendChild(tr);
 };
 footerMaker();
@@ -105,7 +105,7 @@ footerMaker();
 function addNewCookieStore(event) {
   console.log('click');
   event.preventDefault();
-  var form = event.target;//review this further
+  var form = event.target;//this assocaites the form with the target event
   var formStoreName = form.storeName.value;
   console.log(formStoreName);
   var formMinCust = parseInt(form.elements['minCust'].value);
@@ -116,57 +116,11 @@ function addNewCookieStore(event) {
   console.log(newStore);
   storesArray.push(newStore);
   newStore.rowMaker();
-  //newStore.footerMaker();
+
+  oldFooter = document.getElementById('footer');
+  oldFooter.parentNode.removeChild('footer');
+  //footerMaker();
   theForm.reset();
 }
 var getSubmit = document.getElementById('theForm');
 getSubmit.addEventListener('submit', addNewCookieStore);
-//here begins the effort to take form inputs and create a row
-/*function Post(name, minCust, maxCust, avgCookies) {
-  this.name = name;
-  this.minCust = minCust;
-  this.maxCust = maxCust;
-  this.avgCookies = avgCookies;
-  this.simCookies = [];
-  this.randomCustomersPerHour = function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-  };
-  this.eachHourSales = function() {
-    this.totalCookieSales = 0;
-    for (var i = 1; i < hoursToList.length; i++) {
-      var hourlyCookieSales = Math.ceil(this.avgCookies * this.randomCustomersPerHour());
-      this.simCookies.push(hourlyCookieSales);
-      this.totalCookieSales += hourlyCookieSales;
-    }
-  };
-  this.eachHourSales();
-  this.renderToHTML = function() {
-    var body = document.getElementById('store4');
-    var postRow = document.createElement('tr');
-    for (var j = 1; j < hoursToList.length; j++) {
-      var postSales = document.createElement('td');
-      postSales.innerText = this.simCookies[j];
-    };
-  };
-};
-function bakeAndPost(event) {
-  event.preventDefault();
-  var formStore = new Store();
-  post.name = this.elements['storeName'].value;
-  post.minCust = this.elements['minCust'].value;
-  post.maxCust = this.elements['maxCust'].value;
-  post.avgCookies = this.elements['avgCookies'].value;
-  post.renderToHTML();
-
-}
-/*
-(function() {
-  var form = document.getElementById('theForm');
-  addEvent(form, 'submit', function(e) {
-    e.preventDefault();
-    var elements = this.elements;
-    var name = this.elements;
-  })
-
-  */
-//form.addEventListener('submit', bakeAndPost);
