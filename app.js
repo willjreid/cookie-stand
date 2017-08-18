@@ -42,9 +42,7 @@ for (var i = 0; i < hoursToList.length + 1; i++) {
   th.innerText = hoursToList[i];
   thead.appendChild(th);
 }
-//var storeTotal = document.createElement('th');
 th.innerText = 'Location Total Sales';
-//thead.appendChild(storeTotal);
 header.appendChild(thead);
 
 var storesArray = [pike, seatac, seattleCenter, capitol, alki];
@@ -69,23 +67,12 @@ Store.prototype.rowMaker = function () {
 for (var i = 0; i < storesArray.length; i++) {
   storesArray[i].rowMaker();
 }
-//var rowMaker = function () {
-  //for (var j = 0; j < storesArray.length; j++) {
-    //th.id = 'store' + (j - 1);
-//     var td = document.createElement('td');
-//     td.innerText = storesArray[j].totalCookieSales;
-//     tr.appendChild(td);
-//     row.appendChild(tr);
-//   };
-// };
-// rowMaker(event);
 
 var footerMaker = function() {
   var footer = document.getElementById('salesTable');
   var tr = document.createElement('tr');
   tr.id = 'footer';
   var td = document.createElement('td');
-  //td.class = 'footer';
   td.innerText = 'Total Sales: ';
   tr.appendChild(td);
   for (var i = 1; i < hoursToList.length + 1; i++){
@@ -93,7 +80,6 @@ var footerMaker = function() {
     td.innerText = hourlyTotalSales[i].reduce(function(sum,value) {
       return sum + value ;
     },0);
-
     tr.appendChild(td);
   };
   var superTotal = document.createElement('td');
@@ -116,10 +102,11 @@ function addNewCookieStore(event) {
   console.log(newStore);
   storesArray.push(newStore);
   newStore.rowMaker();
-
-  oldFooter = document.getElementById('footer');
-  oldFooter.parentNode.removeChild('footer');
-  //footerMaker();
+//remove the old footer and repalce with a recalculated footer
+  var oldRow = document.getElementById('footer');
+  var container = oldRow.parentNode;
+  container.removeChild(oldRow);
+  footerMaker();
   theForm.reset();
 }
 var getSubmit = document.getElementById('theForm');
