@@ -9,7 +9,7 @@ function Store (storeName, minCust, maxCust, avgCookies) {
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookies = avgCookies;
-  this.simCookies = []; // consider moving this down into the method
+  this.simCookies = [];
   this.randomCustomersPerHour = function() {
     return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   };
@@ -34,7 +34,7 @@ var capitol = new Store('Capitol Hill', 20, 38, 2.3);
 var alki = new Store('Alki', 2, 16, 4.6);
 
 //adding hours to the header row
-var header = document.getElementById('salesTable'); //may not need this since we reference the table earlier?
+var header = document.getElementById('salesTable');
 var thead = document.createElement('thead');
 thead.id = 'hours';
 for (var i = 0; i < hoursToList.length + 1; i++) {
@@ -90,17 +90,13 @@ var footerMaker = function() {
 footerMaker();
 
 function addNewCookieStore(event) {
-  console.log('click');
   event.preventDefault();
   var form = event.target;//this assocaites the form with the target event
-  var formStoreName = form.elements['storeName'].value;//why do i not say form.elements['storeName']?
-  console.log(formStoreName);
+  var formStoreName = form.elements['storeName'].value;
   var formMinCust = parseInt(form.elements['minCust'].value);
-  console.log(formMinCust);
   var formMaxCust = parseInt(form.elements['maxCust'].value);
   var formAvgCookies = parseFloat(form.elements['avgCookies'].value);
   var newStore = new Store(formStoreName, formMinCust, formMaxCust, formAvgCookies);
-  console.log(newStore);
   storesArray.push(newStore);
   newStore.rowMaker();
 //remove the old footer and repalce with a recalculated footer
