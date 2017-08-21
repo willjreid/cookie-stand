@@ -59,16 +59,19 @@ th {
   float: right;
   display: inline-block;
 }
-
+li {
+  list-style-image: none;
+}
 .highlights {
   font-family: 'Josefin Sans', sans-serif;
-  display: inline-block;
   border: 1px grey solid;
   border-radius: 5px;
   background-color: rgba(255, 0, 0, 0.5);
+  list-style-image: none;
 }
 li.highlights {
   border: solid #GGG 1px;
+
 }
 thead {
   color: white;
@@ -88,17 +91,15 @@ form.tr {
   float: left;
   max-width: 60%;
   padding-top: 10px;
+  padding-left: 10px;
   background-color: rgba(240, 240, 240, .5);
   border: 2px inset salmon;
   border-radius: 15px;
   margin-top: 15px;
 }
-#sajak {
-  margin-top: 15px;
-  min-width: 250px;
+.sajak {
   max-width: 99%;
-  float: center;
-  display: inline-block;
+
   border-radius: 15px;
 }
 #bg {
@@ -123,7 +124,10 @@ aside {
   max-width: 20%;
 }
 #deals {
-  float: left;
+margin-top: 300px;
+max-width: 300px;
+margin-left: auto;
+margin-right: auto;
 }
 #break {
   margin: 10px;
@@ -153,6 +157,32 @@ aside {
   text-align: center;
 }
 .centerTable {
+  margin-left: auto;
+  margin-right: auto;
+}
+#display {
+    margin-top: 75px;
+    border: 2px inset salmon;
+    border-radius: 15px;
+}
+#shirt {
+  border-radius: 15px;
+  max-width: 33%;
+}
+#hat {
+  border-radius: 15px;
+  max-width: 33%;
+}
+#cutter {
+  border-radius: 15px;
+  max-width: 33%;
+}
+#frosted {
+  border-radius: 15px;
+}
+#roe {
+  border-radius: 15px;
+  max-width: 250px;
   margin-left: auto;
   margin-right: auto;
 }
